@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>Dish Form</title>
+
+
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<br>
+
+<form autocomplete="off" class="form-horizontal" action="#" th:action="@{/process}" th:object="${potluckList}" method="post" enctype="multipart/form-data">
+    <div class="ui-widget">
+    <div class="form-inline">
+        <input type="hidden" th:field="*{id}" />
+        <label class="control-label col-sm-1" for="foods">Dish :</label>
+            <div class="col-auto">
+            <input type="text" class="form-control basicAutoComplete" id="foods" placeholder="Enter dish" th:field="*{dish}" />
+            <span th:if="${#fields.hasErrors('dish')}"
+                  th:errors="*{dish}"></span><br />
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="form-inline">
+        <label class="control-label col-sm-1" for="name">Name:</label>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="name"  placeholder="Enter your name" th:field="*{name}"/>
+            <span th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}"></span><br />
+        </div>
+    </div>
+    <br>
+    <div class="form-inline">
+        <label class="control-label col-sm-1" for="description">Description :</label>
+        <div class="form-inline">
+            <textarea  id="description" th:field="*{description}"></textarea>
+            <span th:if="${#fields.hasErrors('description')}"
+                  th:errors="*{description}"></span><br />
+        </div>
+    </div>
+    <br>
+    <div class="form-inline">
+        <label class="control-label col-sm-1">Image :</label>
+        <div class="form-inline">
+            <input type="file" name="file" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+            <button type="submit"  class="btn btn-outline-dark">Submit</button>
+        </div>
+    </div>
+
+</form>
+
+<div th:replace="base :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+var foods = [
+
+];
+$('#tags').autocomplete({
+source: foods
+});
+});
+</script>
+</body>
+</html>
