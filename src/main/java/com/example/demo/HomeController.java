@@ -63,7 +63,7 @@ public class HomeController {
 
     @RequestMapping("/update/{id}")
     public String updateToDoList(@PathVariable("id") long id, Model model) {
-        model.addAttribute("potlucklist", potluckListRepository.findById(id).get());
+        model.addAttribute("potluckList", potluckListRepository.findById(id).get());
         return "listform";
     }
 

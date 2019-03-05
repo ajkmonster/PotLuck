@@ -21,7 +21,7 @@
         <tr th:each="potluckList : ${potluckLists}">
         <td th:text="${potluckList.dish}"></td>
         <td th:text="${potluckList.name}"></td>
-        <td th:textarea="${potluckList.description}"></td>
+        <td th:text="${potluckList.description}"></td>
         <td><img th:src="${potluckList.picture}"/></td>
         <td>
             <a th:href="@{/update/{id}(id=${potluckList.id})}">Update</a> -
